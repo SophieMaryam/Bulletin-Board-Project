@@ -26,3 +26,41 @@ app.use(express.static(__dirname + "/../public"));
 app.use('/', bodyParser.urlencoded({extended: true}));
 
 
+// renders index page
+
+app.get('/', function(req, res){
+	res.render('index');
+});
+
+// post request - messages sent to database
+
+
+
+app.post('/messages', (req, res) => {
+	// first you need to 
+
+	var sendingtitle = req.body.name;
+	var sendingbody = req.body.body;
+	
+	console.log(req.body.name);
+	console.log(req.body.body);
+	
+	client.connect();
+
+	// console.log(SQL`Insert into messages (title, body) values("${sendingtitle}", "${sendingbody}")`);
+
+	
+	client.query(SQL`insert into messages (title, body) values(${sendingtitle}, ${sendingbody})`, (err, result) => {
+		console.log(err ? err.stack : "new message added to the database")
+	});
+		// client.end(); // either remove this 
+	res.redirect('/allmessages');
+});
+
+
+
+// you will need to read the file, and then render all the messages in the database ()var server = app.listen(3000, function(req, res){
+
+var server = app.listen(3000, function(req, res){
+	console.log("Example port listening on port: " + server.address().port);
+});
