@@ -1,0 +1,18 @@
+doctype 
+html
+	head
+		link(rel="stylesheet", href="./main.css", type="text/css")
+	body
+		form(name="form", method="post", action="/messages")
+			h1#bullet Bulletin Board 
+			label Title
+			br
+			input(type="text" id="thename" name="name")
+			br
+			br
+			label Insert Message Here! 
+			br
+			br
+			textarea(resize="both", maxlength="300", name="body")
+
+			input(type="submit", value="Submit") 

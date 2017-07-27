@@ -1,0 +1,5 @@
+Step 1: Create an index.pug and a second pug page
+Step 2: Create app.js
+Step 3: On the index.pug page create a form that has a space for people to write new messages
+		This will need a part for jQuery where there is a post request being sent to the app.js page under the same url link 
+		
