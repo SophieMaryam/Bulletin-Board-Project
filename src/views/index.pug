@@ -3,14 +3,13 @@ html
 	head
 		title Bulletin Board
 		link(rel="stylesheet", href="./main.css", type="text/css")
-		link(href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet")
 		link(href="https://fonts.googleapis.com/css?family=Homemade+Apple|La+Belle+Aurore" rel="stylesheet")
 		link(href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet")
 	body#homebody
 		div.background
 			h1#heading Leave your message 
 			form(name="form", method="post", action="/messages")
-				input(type="text" id="title" name="name" placeholder="Name")
+				input(type="text" id="title" name="name" placeholder="Title")
 				textarea(id="textspace", name="body", placeholder="My thoughts...", rows="100", columns="100")
 				input(id="submit" type="submit", value="Submit") 
 				h1#ending Sincerely, yours truly
