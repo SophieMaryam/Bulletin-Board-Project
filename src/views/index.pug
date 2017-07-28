@@ -11,6 +11,6 @@ html
 			h1#heading Leave your message 
 			form(name="form", method="post", action="/messages")
 				input(type="text" id="title" name="name" placeholder="Name")
-				input(id="textspace",resize="none", name="body", placeholder="My thoughts...")
+				textarea(id="textspace", name="body", placeholder="My thoughts...", rows="100", columns="100")
 				input(id="submit" type="submit", value="Submit") 
-			h1#ending Sincerely, yours truly
+				h1#ending Sincerely, yours truly

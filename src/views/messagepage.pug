@@ -1,14 +1,21 @@
 doctype
 html
 	head
+		link(rel="stylesheet", href="./main.css", type="text/css")
+		link(href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Homemade+Apple|La+Belle+Aurore" rel="stylesheet")
 	body
-		each message in info
-			ul.post
-				br 
-				br
-				li=message.title
-				br
-				li=message.body
-				br
-			
+		div#allinfor
+			h1#messagepagetitle See All Messages
+			each message in info
+				ul.post
+					br 
+					br
+					li=message.title
+					br
+					li=message.body
+					br
+			a(href="./")
+				button.button(type=button) Return Back
+				
 
