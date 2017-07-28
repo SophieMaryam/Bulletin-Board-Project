@@ -2,17 +2,18 @@ doctype
 html
 	head
 		link(rel="stylesheet", href="./main.css", type="text/css")
-	body
-		form(name="form", method="post", action="/messages")
-			h1#bullet Bulletin Board 
-			label Title
-			br
-			input(type="text" id="thename" name="name")
-			br
-			br
-			label Insert Message Here! 
-			br
-			br
-			textarea(resize="both", maxlength="300", name="body")
-
-			input(type="submit", value="Submit") 
+		link(href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Homemade+Apple|La+Belle+Aurore" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet")
+	body#homebody
+		div.background
+			h1#heading Leave your message 
+			form(name="form", method="post", action="/messages")
+				label Title
+				br
+				input(type="text" id="title" name="name" placeholder="Name")
+				br
+				br
+				textarea(id="textspace",resize="both", maxlength="300", name="body")
+				h1#ending Sincerely, yours truly
+				input(id="submit" type="submit", value="Submit") 

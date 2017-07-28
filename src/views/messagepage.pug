@@ -2,4 +2,13 @@ doctype
 html
 	head
 	body
-		p=info.title
+		each message in info
+			ul.post
+				br 
+				br
+				li=message.title
+				br
+				li=message.body
+				br
+			
+

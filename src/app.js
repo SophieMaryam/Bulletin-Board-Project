@@ -13,8 +13,9 @@ const { Client } = require('pg');
 const client = new Client({
 	database: 'bulletinboard',
 	host: 'localhost',
-	users: process.env.POSTGRES_USER, //or put this everywhere
-	password: process.env.POSTGRES_PASSWORD
+	user: process.env.POSTGRES_USER, //or put this everywhere
+	password: process.env.POSTGRES_PASSWORD,
+	port:5432
 });
 
 app.set('views', __dirname + "/views");
@@ -55,6 +56,31 @@ app.post('/messages', (req, res) => {
 	});
 		// client.end(); // either remove this 
 	res.redirect('/allmessages');
+});
+
+
+// rendering all messages on a new page  
+app.get('/allmessages', function(req,res){
+	const client = new Client({
+		database: 'bulletinboard',
+		host: 'localhost',
+		user: process.env.POSTGRES_USER, //or put this everywhere
+		password: process.env.POSTGRES_PASSWORD,
+		port:5432
+	});
+	
+	client.connect();
+	
+	client.query("select * FROM messages", (err,result) => {
+		console.log(result.rows);
+		if(err){
+			throw err;
+		}
+	res.render('messagepage', {info: result.rows});
+	client.end()
+		.then(() => console.log('client has disconnected'));
+	});
+	
 });
 
 
