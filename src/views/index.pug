@@ -1,6 +1,7 @@
 doctype 
 html
 	head
+		title Bulletin Board
 		link(rel="stylesheet", href="./main.css", type="text/css")
 		link(href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet")
 		link(href="https://fonts.googleapis.com/css?family=Homemade+Apple|La+Belle+Aurore" rel="stylesheet")
@@ -9,11 +10,7 @@ html
 		div.background
 			h1#heading Leave your message 
 			form(name="form", method="post", action="/messages")
-				label Title
-				br
 				input(type="text" id="title" name="name" placeholder="Name")
-				br
-				br
-				textarea(id="textspace",resize="both", maxlength="300", name="body")
-				h1#ending Sincerely, yours truly
+				input(id="textspace",resize="none", name="body", placeholder="My thoughts...")
 				input(id="submit" type="submit", value="Submit") 
+			h1#ending Sincerely, yours truly
