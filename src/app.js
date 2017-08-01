@@ -51,7 +51,7 @@ app.post('/messages', (req, res) => {
 	// console.log(SQL`Insert into messages (title, body) values("${sendingtitle}", "${sendingbody}")`);
 
 	
-	client.query(SQL`insert into messages (title, body) values(${sendingtitle}, ${sendingbody})`, (err, result) => {
+	client.query(SQL`insert into messages (title, body) values(${sendingtitle}, ${sendingbody})`, (err) => {
 		console.log(err ? err.stack : "new message added to the database")
 	});
 		// client.end(); // either remove this 
@@ -61,13 +61,6 @@ app.post('/messages', (req, res) => {
 
 // rendering all messages on a new page  
 app.get('/allmessages', function(req,res){
-	const client = new Client({
-		database: 'bulletinboard',
-		host: 'localhost',
-		user: process.env.POSTGRES_USER, //or put this everywhere
-		password: process.env.POSTGRES_PASSWORD,
-		port:5432
-	});
 	
 	client.connect();
 	
@@ -76,9 +69,7 @@ app.get('/allmessages', function(req,res){
 		if(err){
 			throw err;
 		}
-	res.render('messagepage', {info: result.rows});
-	client.end()
-		.then(() => console.log('client has disconnected'));
+		res.render('messagepage', {info: result.rows});
 	});
 	
 });

@@ -35,7 +35,7 @@ html, body {
 	margin-left:645px;
 	margin-top:20px;
 	width:260px;
-	height:220px;
+	height:205px;
 	background-color:#C0C0C0;
 	font-family: 'Special Elite', cursive;
 	resize:none;
@@ -81,4 +81,9 @@ html, body {
     height:1000px;
 	width:auto;
 	margin: 0 auto;
+}
+
+.button1 {
+	font-family: 'Special Elite', cursive;
+	margin-left:730px;
 }
